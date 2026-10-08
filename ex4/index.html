@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Chủ - Học Viên DevOps</title>
+    <style>
+        /* ── Reset & Base ─────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #e0e0e0;
+        }
+
+        /* ── Card ─────────────────────────────────────── */
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 48px 56px;
+            max-width: 520px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ── Badge ────────────────────────────────────── */
+        .badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+        }
+
+        /* ── Avatar ───────────────────────────────────── */
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 24px;
+            box-shadow: 0 4px 20px rgba(0, 114, 255, 0.5);
+        }
+
+        /* ── Typography ───────────────────────────────── */
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #00c6ff, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: #9ca3af;
+            margin-bottom: 32px;
+        }
+
+        /* ── Info Grid ────────────────────────────────── */
+        .info-grid {
+            display: grid;
+            gap: 16px;
+            text-align: left;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .info-label {
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #f3f4f6;
+            text-align: right;
+        }
+
+        /* ── Status Indicator ─────────────────────────── */
+        .status-bar {
+            margin-top: 32px;
+            padding: 12px 20px;
+            background: rgba(0, 255, 128, 0.08);
+            border: 1px solid rgba(0, 255, 128, 0.25);
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: #6ee7b7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #34d399;
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50%       { opacity: 0.4; transform: scale(1.4); }
+        }
+
+        /* ── Footer ───────────────────────────────────── */
+        footer {
+            margin-top: 28px;
+            font-size: 0.75rem;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="card" role="main">
+            <span class="badge">DevOps &mdash; Session 07</span>
+
+            <div class="avatar" aria-hidden="true">👨‍💻</div>
+
+            <h1>Thông Tin Học Viên</h1>
+            <p class="subtitle">Bài tập 4 &mdash; Nginx Reverse Proxy</p>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Họ &amp; Tên</span>
+                    <!-- TODO: Thay bằng họ tên thực của bạn -->
+                    <span class="info-value" id="student-name">Nguyễn Văn A</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Mã Lớp</span>
+                    <!-- TODO: Thay bằng mã lớp thực của bạn -->
+                    <span class="info-value" id="class-code">DEVOPS-K01</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">API Endpoint</span>
+                    <span class="info-value">/api/</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Backend Port</span>
+                    <span class="info-value">8082</span>
+                </div>
+            </div>
+
+            <div class="status-bar" role="status" aria-live="polite">
+                <span class="dot"></span>
+                Nginx Reverse Proxy đang hoạt động
+            </div>
+
+            <footer>
+                <p>Served by Nginx &bull; Static Content &bull; Port 80</p>
+            </footer>
+        </div>
+    </main>
+</body>
+</html>
